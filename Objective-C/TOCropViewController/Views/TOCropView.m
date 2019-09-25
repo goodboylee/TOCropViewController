@@ -50,7 +50,6 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
 
 @interface TOCropView () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong, readwrite) UIImage *image;
 @property (nonatomic, assign, readwrite) TOCropViewCroppingStyle croppingStyle;
 
 /* Views */
@@ -1240,6 +1239,16 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
         }
     }
 }
+
+//2019-9-25 louts add
+- (void)setImage:(UIImage *)image
+{
+    _image = image;
+    self.backgroundImageView.image = image;
+    self.foregroundImageView.image = image;
+    [self resetLayoutToDefaultAnimated:NO];
+}
+//end.
 
 #pragma mark - Editing Mode -
 - (void)startEditing

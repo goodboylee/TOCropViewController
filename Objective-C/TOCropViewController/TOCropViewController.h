@@ -87,8 +87,9 @@
 
 /**
  The original, uncropped image that was passed to this controller.
+ 2019-9-25 lotus deprecate "readonly" property, cause the image may be from network, so it should be resetable. if you reset the image, don't forget to reset TOCropView's image at the same time.
  */
-@property (nonnull, nonatomic, readonly) UIImage *image;
+@property (nonnull, nonatomic) UIImage *image;
 
 /**
  The minimum croping aspect ratio. If set, user is prevented from setting cropping rectangle to lower aspect ratio than defined by the parameter.
@@ -321,8 +322,9 @@
  Creates a new instance of a crop view controller with the supplied image
  
  @param image The image that will be used to crop.
+ 
  */
-- (nonnull instancetype)initWithImage:(nonnull UIImage *)image NS_SWIFT_NAME(init(image:));
+- (nonnull instancetype)initWithImage:(nullable UIImage *)image NS_SWIFT_NAME(init(image:));
 
 /** 
  Creates a new instance of a crop view controller with the supplied image and cropping style
@@ -330,7 +332,7 @@
  @param style The cropping style that will be used with this view controller (eg, rectangular, or circular)
  @param image The image that will be cropped
  */
-- (nonnull instancetype)initWithCroppingStyle:(TOCropViewCroppingStyle)style image:(nonnull UIImage *)image NS_SWIFT_NAME(init(croppingStyle:image:));
+- (nonnull instancetype)initWithCroppingStyle:(TOCropViewCroppingStyle)style image:(nullable UIImage *)image NS_SWIFT_NAME(init(croppingStyle:image:));
 
 /**
  Resets object of TOCropViewController class as if user pressed reset button in the bottom bar themself

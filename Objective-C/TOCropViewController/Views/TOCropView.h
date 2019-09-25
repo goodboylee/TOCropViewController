@@ -39,8 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The image that the crop view is displaying. This cannot be changed once the crop view is instantiated.
+ 2019-9-25 lotus deprecate "readonly" property, cause the image may be from network, so it should be resetable.
  */
-@property (nonnull, nonatomic, strong, readonly) UIImage *image;
+@property (nonnull, nonatomic, strong) UIImage *image;
 
 /**
  The cropping style of the crop view (eg, rectangular or circular)

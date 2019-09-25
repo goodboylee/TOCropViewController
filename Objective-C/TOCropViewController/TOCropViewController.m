@@ -32,9 +32,6 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 
 @interface TOCropViewController () <UIActionSheetDelegate, UIViewControllerTransitioningDelegate, TOCropViewDelegate>
 
-/* The target image */
-@property (nonatomic, readwrite) UIImage *image;
-
 /* The cropping style of the crop view */
 @property (nonatomic, assign, readwrite) TOCropViewCroppingStyle croppingStyle;
 
@@ -73,7 +70,7 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 
 - (instancetype)initWithCroppingStyle:(TOCropViewCroppingStyle)style image:(UIImage *)image
 {
-    NSParameterAssert(image);
+    //NSParameterAssert(image);
 
     self = [super init];
     if (self) {
@@ -1257,6 +1254,12 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 - (CGFloat)minimumAspectRatio
 {
     return self.cropView.minimumAspectRatio;
+}
+
+- (void)setImage:(UIImage *)image
+{
+    _image = image;
+    self.cropView.image = image;
 }
 
 @end
