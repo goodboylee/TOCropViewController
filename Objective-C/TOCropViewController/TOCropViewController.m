@@ -602,7 +602,8 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
         [ratioValues addObject:@(TOCropViewControllerAspectRatioPresetCustom)];
     }
 
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    BOOL isIpad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:isIpad ? UIAlertControllerStyleAlert : UIAlertControllerStyleActionSheet];
     [alertController addAction:[UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:nil]];
 
     //Add each item to the alert controller
@@ -846,9 +847,10 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     // Get the resource bundle depending on the framework/dependency manager we're using
     NSBundle *resourceBundle = TO_CROP_VIEW_RESOURCE_BUNDLE_FOR_OBJECT(self);
 
+    BOOL isIpad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
                                                                              message:nil
-                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+                                                                      preferredStyle:isIpad ? UIAlertControllerStyleAlert : UIAlertControllerStyleActionSheet];
     alertController.popoverPresentationController.sourceView = self.toolbar.visibleCancelButton;
 
     NSString *yesButtonTitle = NSLocalizedStringFromTableInBundle(@"Delete Changes", @"TOCropViewControllerLocalizable", resourceBundle, nil);
