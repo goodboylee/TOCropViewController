@@ -571,9 +571,9 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 //	NSString *originalButtonTitle = NSLocalizedStringFromTableInBundle(@"Original", @"TOCropViewControllerLocalizable", resourceBundle, nil);
 //	NSString *squareButtonTitle = NSLocalizedStringFromTableInBundle(@"Square", @"TOCropViewControllerLocalizable", resourceBundle, nil);
 
-    NSString *cancelButtonTitle = NSLocalizedStringFromTable(@"Cancel", @"TOCropViewControllerLocalizable", nil);
-    NSString *originalButtonTitle = NSLocalizedStringFromTable(@"Original", @"TOCropViewControllerLocalizable", nil);
-    NSString *squareButtonTitle = NSLocalizedStringFromTable(@"Square", @"TOCropViewControllerLocalizable", nil);
+    NSString *cancelButtonTitle = NSLocalizedString(@"取消", nil);
+    NSString *originalButtonTitle = NSLocalizedString(@"原有", nil);
+    NSString *squareButtonTitle = NSLocalizedString(@"正方形", nil);
     
     //Prepare the list that will be fed to the alert view/controller
     
