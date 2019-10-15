@@ -1246,7 +1246,7 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
     _image = image;
     self.backgroundImageView.image = image;
     self.foregroundImageView.image = image;
-    [self resetLayoutToDefaultAnimated:NO];
+    [self moveCroppedContentToCenterAnimated:YES];
 }
 //end.
 
