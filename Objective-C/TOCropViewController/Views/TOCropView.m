@@ -1248,6 +1248,7 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
     self.foregroundImageView.image = image;
     [self.backgroundImageView sizeToFit];
     [self.foregroundImageView sizeToFit];
+    self.backgroundContainerView.frame = self.backgroundImageView.frame;
     [self layoutInitialImage];
 }
 //end.
