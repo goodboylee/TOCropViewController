@@ -285,6 +285,9 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
 
 - (void)layoutInitialImage
 {
+    //2019-10-29 lotus add
+    if (self.imageSize.width < FLT_EPSILON || self.imageSize.height < FLT_EPSILON) return;
+    //end.
     CGSize imageSize = self.imageSize;
     self.scrollView.contentSize = imageSize;
     
@@ -974,10 +977,13 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
 
 - (void)setCropBoxFrame:(CGRect)cropBoxFrame
 {
+    //2019-10-29 lotus add
+    if (self.imageSize.width < FLT_EPSILON || self.imageSize.height < FLT_EPSILON) return;
+    //end.
     if (CGRectEqualToRect(cropBoxFrame, _cropBoxFrame)) {
         return;
     }
-    
+
     // Upon init, sometimes the box size is still 0 (or NaN), which can result in CALayer issues
     CGSize frameSize = cropBoxFrame.size;
     if (frameSize.width < FLT_EPSILON || frameSize.height < FLT_EPSILON) { return; }
@@ -1098,7 +1104,7 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
         self.restoreImageCropFrame = imageCropFrame;
         return;
     }
-    
+
     [self updateToImageCropFrame:imageCropFrame];
 }
 
